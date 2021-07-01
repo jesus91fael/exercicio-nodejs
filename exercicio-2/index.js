@@ -1,25 +1,24 @@
 const express = require('express')
 const app = express()
+const fetch = require('node-fetch')
 
-const data = new Date().toLocaleDateString('pt-BR')
+app.get('/', async function(req, res){
+    
+    const data = new Date()
+    const getGraus = async () => {
 
-const temper = express('https://api.hgbrasil.com/weather?woeid=455823')
-
-
-let valor = temper.temp
-
-const temperatur = (valor-32)*5/9
-const temperatur1 = temperatur.toFixed(2)
-
-const dados = [
-    {
-        "date" : data,
-        "temperatura": temperatur1
+        const response = await fetch('https://api.hgbrasil.com/weather?woeid=455823')
+        return await response.json()
     }
-]
-
-app.get('/', function(req, res){
-    res.send(dados)
+    let valueGraus = await getGraus()
+    
+    valueGraus = valueGraus.results.forecast    
+    res.send({
+        "date": data,
+        "graus": valueGraus[0]
+    })
 })
-
-app.listen(3000)
+ 
+app.listen(3000, function(){
+    console.log('Server is running!')
+});

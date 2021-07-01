@@ -1,6 +1,7 @@
-const data = 'Testando a criação de arquivos';
+const fs = require('fs')
 
-fs.writeFile('arquivo.txt', data, (err) => {
-    if (err) throw err;
-  console.log('O arquivo foi criado!');
-});
+const valor = 'Aprendendo JS';
+fs.writeFile('arquivo.txt', valor, (err) => {
+  if(err) throw err;
+  console.log('O arquivo foi criado!')
+})

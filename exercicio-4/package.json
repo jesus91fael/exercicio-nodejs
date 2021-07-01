@@ -1,6 +1,7 @@
 {
-  "name": "exercicio-2",
+  "name": "exercicio-4",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,10 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "request": "^2.81.0"
-  },
-  "devDependencies": {},
-  "description": ""
+    "express": "^4.17.1"
+  }
 }
